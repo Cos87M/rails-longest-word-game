@@ -18,6 +18,8 @@ class GamesController < ApplicationController
 
   private
 
+  # method checks if all the letters in a given word are present in the array of letters, and returns a Boolean value indicating whether the word can be formed from the letters or not.
+
   def included?(word, letters)
     word.chars.all? { |letter| word.count(letter) <= letters.count(letter) }
   end

@@ -10,7 +10,14 @@
   <p class="form-prefix">What is the longest word you can find?</p>
 
   <form action="/score" method="POST" data-turbo="false">
+  <%# # Creates a hidden form input field with a name attribute of authenticity_token and a value attribute of the current form authenticity token.
+   This token is used to protect forms from Cross-Site Request Forgery attacks %>
+
     <%= hidden_field_tag :authenticity_token, form_authenticity_token %>
+
+  <%# Creates a hidden input field with a name attribute of letters and a value attribute of the @letters instance variable.
+  When the form is submitted, the value of this field will be included in the params hash that is sent to the server. %>
+
     <%= hidden_field_tag :letters, @letters %>
     <div class="input-group">
       <input type="text" name="word" class="form-control">
